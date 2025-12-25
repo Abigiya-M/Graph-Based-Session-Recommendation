@@ -85,10 +85,10 @@ neo4j_user = "neo4j"
 # Prompt for password with fallback to hardcoded value
 try:
     # NOTE: Replace the fallback password with your actual Neo4j AuraDB password
-    neo4j_password = getpass.getpass(f"Enter password for {neo4j_user}@{neo4j_uri} (press Enter for default): ") or "T09WvjN-00q_0sjK5B9qj_tjPWUky3Afwu946zvVZl8"
+    neo4j_password = getpass.getpass(f"Enter password for {neo4j_user}@{neo4j_uri} (press Enter for default): ") or ""
 except AttributeError:
     print("Error: 'getpass' function not available. Using hardcoded password as fallback.")
-    neo4j_password = "T09WvjN-00q_0sjK5B9qj_tjPWUky3Afwu946zvVZl8"
+    neo4j_password = "...."
 try:
     driver = GraphDatabase.driver(neo4j_uri, auth=(neo4j_user, neo4j_password))
     driver.verify_connectivity()
